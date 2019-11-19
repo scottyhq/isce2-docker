@@ -5,7 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Publish to Registry
+    - name: Get ISCE Source Code
+      run: |
+        wget https://github.com/isce-framework/isce2/archive/v2.3.2.tar.gz
+    - name: Build Image and Push to DockerHub
       uses: elgohr/Publish-Docker-Github-Action@2.8
       with:
         name: scottyhq/github-action
